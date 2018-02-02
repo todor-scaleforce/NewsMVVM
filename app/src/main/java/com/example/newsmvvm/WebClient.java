@@ -1,5 +1,7 @@
 package com.example.newsmvvm;
 
+import android.util.Log;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.MySSLSocketFactory;
 
@@ -40,5 +42,12 @@ public class WebClient {
             client = new WebClient();
 
         return client;
+    }
+
+
+    public void cancelAllRequests() {
+        Log.d(TAG, "cancelAllRequests: cancelling ALL requests");
+        if(asyncHttpClient != null)
+            asyncHttpClient.cancelAllRequests(true);
     }
 }
