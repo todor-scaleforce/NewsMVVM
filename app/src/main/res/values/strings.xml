@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">NewsMVVM</string>
     <string name="news_api_key">01792428adf046c6b8d4f926cbfb5674</string>
+
+    <!-- MAIN SCREEN -->
+    <string name="top_headlines_label">Top Headlines</string>
+    <string name="everything_label">Everything</string>
+    <string name="sources_label">Sources</string>
 </resources>
