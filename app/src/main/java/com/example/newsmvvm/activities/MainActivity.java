@@ -1,5 +1,6 @@
 package com.example.newsmvvm.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private Button bSources;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         bTopHeadlines.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Top Headlines", Toast.LENGTH_SHORT).show();
+                startTopHeadlinesScreen();
             }
         });
 
@@ -68,5 +68,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         Log.d(TAG, "onPause: hit");
+    }
+
+
+    private void startTopHeadlinesScreen() {
+        Intent intent = new Intent(MainActivity.this, TopHeadlinesActivity.class);
+        startActivity(intent);
     }
 }

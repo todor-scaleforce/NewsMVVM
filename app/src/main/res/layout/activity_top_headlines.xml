@@ -6,6 +6,7 @@
     android:id="@+id/root_container">
 
     <android.support.v7.widget.RecyclerView
+        android:visibility="gone"
         android:id="@+id/top_headlines_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
@@ -17,7 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:visibility="gone">
+        android:orientation="vertical"
+        android:visibility="visible">
         <TextView
             android:id="@+id/something_wrong_text"
             android:layout_width="wrap_content"
@@ -28,6 +30,7 @@
             android:id="@+id/retry_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="@string/retry_label"/>
     </LinearLayout>
 
