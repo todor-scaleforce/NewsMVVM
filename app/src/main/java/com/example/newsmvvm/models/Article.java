@@ -13,6 +13,7 @@ public class Article {
     private String url;
     private String urlToImage;
     private String publishedAt;
+    private String publishAtFormated;
 
 
     public Article() {
@@ -86,5 +87,13 @@ public class Article {
 
     public void setPublishedAt(String publishedAt) {
         this.publishedAt = publishedAt;
+    }
+
+    public String getPublishAtFormated() {
+        return publishAtFormated;
+    }
+
+    public void setPublishAtFormated(String publishAtFormated) {
+        this.publishAtFormated = publishAtFormated;
     }
 }

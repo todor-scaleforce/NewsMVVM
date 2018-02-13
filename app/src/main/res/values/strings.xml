@@ -6,9 +6,13 @@
     <!-- GENERAL STRINGS -->
     <string name="something_went_wrong_label">Ups… Something went wrong</string>
     <string name="retry_label">Retry</string>
+    <string name="not_available_label">N/A</string>
 
     <!-- MAIN SCREEN -->
     <string name="top_headlines_label">Top Headlines</string>
     <string name="everything_label">Everything</string>
     <string name="sources_label">Sources</string>
+
+    <!-- ARTICLE ITEM -->
+    <string name="published_label">Published %s</string>
 </resources>
