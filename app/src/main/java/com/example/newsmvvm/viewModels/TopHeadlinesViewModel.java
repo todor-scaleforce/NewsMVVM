@@ -4,9 +4,10 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.util.Log;
 
-import com.example.newsmvvm.WebClient;
 import com.example.newsmvvm.models.Article;
 import com.example.newsmvvm.models.Country;
+import com.example.newsmvvm.webServices.IWebServiceResponse;
+import com.example.newsmvvm.webServices.NewsWebService;
 
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  * Created by tosheto on 2/8/2018.
  */
 
-public class TopHeadlinesViewModel extends ViewModel {
+public class TopHeadlinesViewModel extends ViewModel implements IWebServiceResponse {
 
     private static final String TAG = TopHeadlinesViewModel.class.getSimpleName();
 
@@ -23,8 +24,18 @@ public class TopHeadlinesViewModel extends ViewModel {
 
     public void fetchTopHeadlinesForCountry(Country country) {
         Log.d(TAG, "fetchTopHeadlinesForCountry: hit");
-        WebClient.getInstance()
-                .getAsyncHttpClient()
-                .addHeader(WebClient.AUTHORIZATION_HEADER, );
+        NewsWebService.getInstance().fetchTopHeadlinesForCountry(country, this);
+    }
+
+
+    @Override
+    public void onWebServiceSuccess(Object response, Object tag) {
+        Log.d(TAG, "onWebServiceSuccess: hit");
+    }
+
+
+    @Override
+    public void onWebServiceFailure(Object response, Object tag) {
+        Log.d(TAG, "onWebServiceFailure: hit");
     }
 }

@@ -1,4 +1,4 @@
-package com.example.newsmvvm.services;
+package com.example.newsmvvm.webServices;
 
 import android.util.Log;
 
@@ -8,7 +8,6 @@ import com.example.newsmvvm.models.Country;
 import com.example.newsmvvm.utils.EndpointsConstants;
 import com.loopj.android.http.BaseJsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.loopj.android.http.ResponseHandlerInterface;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -16,32 +15,32 @@ import cz.msebera.android.httpclient.Header;
  * Created by tosheto on 2/18/2018.
  */
 
-public class NewsService {
+public class NewsWebService {
 
-    private static final String TAG = NewsService.class.getSimpleName();
+    private static final String TAG = NewsWebService.class.getSimpleName();
 
 
-    private static NewsService service;
+    private static NewsWebService service;
 
     private String apiKey;
     private WebClient webClient;
 
 
-    private NewsService() {
+    private NewsWebService() {
         apiKey = "01792428adf046c6b8d4f926cbfb5674";
         webClient = WebClient.getInstance();
     }
 
 
-    public NewsService getInstance() {
+    public static NewsWebService getInstance() {
         if(service == null)
-            service = new NewsService();
+            service = new NewsWebService();
 
         return service;
     }
 
 
-    public void fetchTopHeadlinesForCountry(Country country, IServiceResponse serviceResponse) {
+    public void fetchTopHeadlinesForCountry(Country country, IWebServiceResponse serviceResponse) {
         Log.d(TAG, "fetchTopHeadlinesForCountry: hit");
 
         RequestParams requestParams = new RequestParams();
@@ -66,6 +65,6 @@ public class NewsService {
                         Log.d(TAG, "parseResponse: hit");
                         return null;
                     }
-                });
+                }).setTag(WebServiceTag.NEWS_FETCH_TOP_HEADLINES_FOR_COUNTRY);
     }
 }

@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">NewsMVVM</string>
-    <string name="news_api_key">01792428adf046c6b8d4f926cbfb5674</string>
-
 
     <!-- GENERAL STRINGS -->
     <string name="something_went_wrong_label">Ups… Something went wrong</string>
