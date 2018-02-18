@@ -50,4 +50,9 @@ public class WebClient {
         if(asyncHttpClient != null)
             asyncHttpClient.cancelAllRequests(true);
     }
+
+
+    public AsyncHttpClient getAsyncHttpClient() {
+        return asyncHttpClient;
+    }
 }
