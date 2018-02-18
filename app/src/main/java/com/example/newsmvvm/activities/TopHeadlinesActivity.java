@@ -1,5 +1,6 @@
 package com.example.newsmvvm.activities;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,9 +14,8 @@ import android.widget.Toast;
 
 import com.example.newsmvvm.R;
 import com.example.newsmvvm.adapters.ArticlesAdapter;
-import com.example.newsmvvm.models.Article;
-
-import java.util.ArrayList;
+import com.example.newsmvvm.models.Country;
+import com.example.newsmvvm.viewModels.TopHeadlinesViewModel;
 
 /**
  * Created by tosheto on 2/7/2018.
@@ -31,6 +31,8 @@ public class TopHeadlinesActivity extends AppCompatActivity {
     private Button retryButton;
 
     private ArticlesAdapter articlesAdapter;
+
+    private TopHeadlinesViewModel topHeadlinesViewModel;
 
 
     @Override
@@ -52,6 +54,10 @@ public class TopHeadlinesActivity extends AppCompatActivity {
                 Toast.makeText(TopHeadlinesActivity.this, "Retry click", Toast.LENGTH_SHORT).show();
             }
         });
+
+        topHeadlinesViewModel = ViewModelProviders.of(this).get(TopHeadlinesViewModel.class);
+
+        topHeadlinesViewModel.fetchTopHeadlinesForCountry(Country.BULGARIA);
     }
 
 
