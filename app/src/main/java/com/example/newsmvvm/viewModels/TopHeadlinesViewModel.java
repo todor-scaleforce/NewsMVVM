@@ -23,6 +23,8 @@ public class TopHeadlinesViewModel extends ViewModel {
 
     public void fetchTopHeadlinesForCountry(Country country) {
         Log.d(TAG, "fetchTopHeadlinesForCountry: hit");
-        
+        WebClient.getInstance()
+                .getAsyncHttpClient()
+                .addHeader(WebClient.AUTHORIZATION_HEADER, );
     }
 }

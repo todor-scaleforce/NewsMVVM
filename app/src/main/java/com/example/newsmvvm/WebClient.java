@@ -1,7 +1,5 @@
 package com.example.newsmvvm;
 
-import android.util.Log;
-
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.MySSLSocketFactory;
 
@@ -14,6 +12,7 @@ import java.security.KeyStore;
 public class WebClient {
 
     private static final String TAG = WebClient.class.getSimpleName();
+    public static final String AUTHORIZATION_HEADER = "Authorization";
 
     private static WebClient client = null;
 
@@ -42,13 +41,6 @@ public class WebClient {
             client = new WebClient();
 
         return client;
-    }
-
-
-    public void cancelAllRequests() {
-        Log.d(TAG, "cancelAllRequests: cancelling ALL requests");
-        if(asyncHttpClient != null)
-            asyncHttpClient.cancelAllRequests(true);
     }
 
 
